@@ -8,6 +8,7 @@
 #include "gpio.h"
 #include "stm32f4xx_hal.h"
 #include "stdint.h"
+#include "dwt.h"
 
 #define NROWS 4
 #define NCOLS 4
