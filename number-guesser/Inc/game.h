@@ -9,8 +9,12 @@
 #include "main.h"
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_gpio.h"
+#include "keypad.h"
+#include "lcd.h"
 
 void circleUserLED(void);
+HAL_StatusTypeDef sendToLCD(void);
+void runGame(uint16_t target);
 
 #endif /*GAME_H*/
 // EOF FILE GAME_H

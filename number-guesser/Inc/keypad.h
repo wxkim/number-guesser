@@ -8,32 +8,45 @@
 #include "gpio.h"
 #include "stm32f4xx_hal.h"
 #include "stdint.h"
+#include "lcd.h"
 #include "dwt.h"
 
 #define NROWS 4
 #define NCOLS 4
 
-GPIO_TypeDef* KEYPAD_ROW_PORTS[NROWS] = {GPIOB, GPIOC, GPIOA, GPIOA};
+#define ROW1_PORT GPIOB
+#define ROW1_PIN  GPIO_PIN_1
+#define ROW2_PORT GPIOC
+#define ROW2_PIN  GPIO_PIN_5
+#define ROW3_PORT GPIOA
+#define ROW3_PIN  GPIO_PIN_7
+#define ROW4_PORT GPIOA
+#define ROW4_PIN  GPIO_PIN_5
 
-uint16_t KEYPAD_ROW_PINS[NROWS]  =
-  {GPIO_PIN_1, GPIO_PIN_5, GPIO_PIN_7, GPIO_PIN_5};
+#define COL1_PORT GPIOA
+#define COL1_PIN  GPIO_PIN_3
+#define COL2_PORT GPIOA
+#define COL2_PIN  GPIO_PIN_1
+#define COL3_PORT GPIOC
+#define COL3_PIN  GPIO_PIN_3
+#define COL4_PORT GPIOC
+#define COL4_PIN  GPIO_PIN_1
 
-GPIO_TypeDef* KEYPAD_COL_PORTS[NCOLS] = {GPIOA, GPIOA, GPIOC, GPIOC};
 
-uint16_t KEYPAD_COL_PINS[NCOLS] =
-  {GPIO_PIN_3, GPIO_PIN_1, GPIO_PIN_3, GPIO_PIN_1};
 
-const char KEYS[NROWS][NCOLS] = {
-  {'1', '2', '3', 'A'},
-  {'4', '5', '6', 'B'},
-  {'7', '8', '9', 'C'},
-  {'*', '0', '#', 'D'}
-};
+extern GPIO_TypeDef* KEYPAD_ROW_PORTS[4];
+extern uint16_t      KEYPAD_ROW_PINS[4];
+extern GPIO_TypeDef* KEYPAD_COL_PORTS[4];
+extern uint16_t      KEYPAD_COL_PINS[4];
+extern char          KEYS[4][4];
 
 void KEYPAD_Init(void);
 char KEYPAD_GetChar(void);
 char KEYPAD_WaitPress(void);
 uint8_t KEYPAD_IsPressed(char key);
+void KEYPAD_Debug();
+
+
 
 
 #endif //KEYPAD_H

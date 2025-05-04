@@ -95,16 +95,16 @@ int main(void)
   DWT_Init();
   LCD_Init();
   KEYPAD_Init();
-
-  LCD_SendString("Booting...");
+  LCD_SendString("Hello...");
+  HAL_Delay(400);
+  LCD_Clear();  // Clear LCD before writing
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1) {
     /* USER CODE END WHILE */
-
-
+    KEYPAD_Debug();
 
     /* USER CODE BEGIN 3 */
   }

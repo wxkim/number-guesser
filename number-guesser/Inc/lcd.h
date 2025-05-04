@@ -27,6 +27,8 @@ void LCD_Init(void);
 void LCD_SendCommand(uint8_t cmd);
 void LCD_WriteData4B(uint8_t data);
 void LCD_SendString(const char *str);
+void LCD_Clear(void);
+void LCD_nextLine(void);
 
 #endif /* LCD_H */
 // EOF FILE LCD_H

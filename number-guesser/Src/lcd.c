@@ -95,3 +95,13 @@ void LCD_EnablePulse(void) {
   HAL_GPIO_WritePin(LCD_E_GPIO_Port, LCD_E_Pin, GPIO_PIN_RESET);
   DWT_Delay_uS(1);
 }
+
+void LCD_Clear(void) {
+  LCD_SendCommand(0x01);
+  DWT_Delay_uS(2000);
+}
+
+void LCD_nextLine(void) {
+  LCD_SendCommand(0xC0);
+  DWT_Delay_uS(2000);
+}
