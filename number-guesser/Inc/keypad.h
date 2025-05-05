@@ -42,7 +42,7 @@ extern char          KEYS[4][4];
 
 void KEYPAD_Init(void);
 char KEYPAD_GetChar(void);
-char KEYPAD_WaitPress(void);
+char KEYPAD_WaitPress(void); //polling
 uint8_t KEYPAD_IsPressed(char key);
 void KEYPAD_Debug();
 

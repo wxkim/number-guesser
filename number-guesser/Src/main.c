@@ -91,12 +91,20 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+
+
   /* USER CODE BEGIN 2 */
   DWT_Init();
   LCD_Init();
   KEYPAD_Init();
-  LCD_SendString("Hello...");
-  HAL_Delay(400);
+
+  RTC_TimeTypeDef sTime;
+  HAL_RTC_GetTime(&hrtc, &sTime, RTC_FORMAT_BIN);
+  srand(sTime.Seconds ^ sTime.Minutes ^ sTime.Hours);
+  srand(HAL_GetTick());
+
+  LCD_SendString("Initializing...");
+  HAL_Delay(2025);
   LCD_Clear();  // Clear LCD before writing
   /* USER CODE END 2 */
 
@@ -104,8 +112,20 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1) {
     /* USER CODE END WHILE */
-    KEYPAD_Debug();
+    //KEYPAD_Debug();
+    Game_Init();
+    const game_state_t res = Game_Run(&game);
+    if (res == NOT_STARTED) {
+      LCD_Clear();
+      LCD_SendString("Game restarting...");
+      HAL_Delay(1100);
+      LCD_Clear();
+    }
 
+    else if (res == GAME_OVER_WIN) {
+      for (int i = 0; i < 20; i++) circleUserLED();
+      continue;
+    }
     /* USER CODE BEGIN 3 */
   }
 

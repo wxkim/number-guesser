@@ -17,11 +17,7 @@ char KEYS[NROWS][NCOLS] = {
   {'*', '0', '#', 'D'}
 };
 
-//todo: in cubeMX, make rows pins GPIO outputs
-//todo: in cubeMX, make column pins GPIO input with pulldown
-//todo: get game logic from tyler
-//todo: get keypad to read to LCD
-//todo: fix keypad drivers
+
 
 void KEYPAD_Init(void) {
   for (int r = 0; r < 4; r++)
