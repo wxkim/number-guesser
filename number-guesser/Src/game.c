@@ -54,7 +54,7 @@ game_state_t Game_Run(game_t* game) {
   KEYPAD_WaitPress();
 
   LCD_Clear();
-  LCD_SendString("Press * to\nrestart.");
+  LCD_SendString("   LOADING...");
   HAL_Delay(1500);
 
   LCD_Clear();

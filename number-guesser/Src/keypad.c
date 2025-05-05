@@ -47,7 +47,7 @@ char KEYPAD_WaitPress(void) {
   while (key == '\0') key = KEYPAD_GetChar();
 
   // simple debounce wait
-  DWT_Delay_uS(200000);  // 200 ms
+  DWT_Delay_uS(100000);  // 100 ms
   return key;
 }
 

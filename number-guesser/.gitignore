@@ -5,3 +5,4 @@ cmake
 cmake-build-debug
 cmake-build-debug-arm-embedded
 cmake-build-default
+.idx
